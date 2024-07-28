@@ -1,33 +1,102 @@
-# Gradle files
-.gradle/
-build/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You, Saloni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: radial-gradient(circle, rgba(255,183,197,1) 0%, rgba(255,138,173,1) 35%, rgba(255,90,136,1) 100%);
+            font-family: 'Lobster', cursive;
+            color: #ffffff;
+            text-align: center;
+            font-size: 3rem;
+            position: relative;
+        }
 
-# Local configuration file (sdk path, etc)
-local.properties
+        .heart {
+            position: absolute;
+            width: 150px;
+            height: 135px;
+            background: #ff69b4;
+            bottom: 10%;
+            margin: auto;
+            animation: beat 1s infinite;
+            transform-origin: center;
+        }
 
-# Log/OS Files
-*.log
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 225px;
+            background: #ff69b4;
+            border-radius: 75px 75px 0 0;
+            top: -112.5px;
+            left: 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
+        .heart:after {
+            left: 75px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
 
-# Keystore files
-*.jks
-*.keystore
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+        .flowing-text {
+            position: absolute;
+            width: 100%;
+            white-space: nowrap;
+            animation: moveText 10s linear infinite;
+            top: 40%;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffeb3b;
+            text-shadow: 2px 2px #ff0000;
+        }
 
-# Android Profiling
-*.hprof
+        .background-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('https://i.imgur.com/U5yzLI8.png') repeat;
+            z-index: -1;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-hearts"></div>
+    <div class="flowing-text">I LOVE YOU SALONI &nbsp;&nbsp;&nbsp; LOVE YOU SO MUCH</div>
+    <div class="heart"></div>
+</body>
+</html>
